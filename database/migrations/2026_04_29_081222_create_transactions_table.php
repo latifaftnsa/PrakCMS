@@ -19,7 +19,8 @@ return new class extends Migration
         $table->string('payment_method', 30);
         $table->string('transaction_status', 20);
         $table->text('shipping_address');
-        $table->foreignId('user_id')->constrained('users'); // Merujuk ke siapa yang membeli
+        $table->string('payment_proof')->nullable();
+        $table->foreignId('user_id')->constrained('users'); 
         $table->timestamps();
     });
     }

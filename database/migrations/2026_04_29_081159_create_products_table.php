@@ -14,12 +14,13 @@ return new class extends Migration
     Schema::create('products', function (Blueprint $table) {
         $table->id();
         $table->string('product_name', 50);
+        $table->string('product_image')->nullable();
         $table->char('grade', 1);
         $table->decimal('price', 12, 2);
         $table->text('description');
         $table->string('stock_status', 20);
         $table->timestamp('upload_date');
-        $table->foreignId('user_id')->constrained('users'); // Merujuk ke siapa yang menjual
+        $table->foreignId('user_id')->constrained('users'); 
         $table->foreignId('category_id')->constrained('categories');
         $table->timestamps();
     });
